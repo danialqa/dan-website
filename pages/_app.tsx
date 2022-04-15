@@ -5,11 +5,11 @@ import { Header } from 'components';
 
 import GlobalStyle from './global.style';
 
-import themeVariables from 'theme/variables/index';
+import variables from 'theme/variables';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={themeVariables('dark', 'en')}>
+    <ThemeProvider theme={variables('dark', 'en')}>
       <GlobalStyle />
 
       <Header />

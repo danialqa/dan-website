@@ -9,7 +9,7 @@ export default function Home() {
     <div className='container'>
       <Helmet title='Front-end Developer' />
 
-      <Flex color='#fff'>
+      <Flex color='#fff' margin='150px 0 0 0'>
         <Image
           src='/images/me.png'
           width={533}
@@ -24,10 +24,7 @@ export default function Home() {
             padding='20px'
             borderRadius='23px'
           >
-            <Text fontSize='18px'>
-              I’m a Front-End Developer and aslo a UI/UX designer! based in
-              Tehran, IRAN
-            </Text>
+            <Text fontSize='18px'>I’m a Front-End Developer</Text>
           </Box>
         </Box>
       </Flex>
