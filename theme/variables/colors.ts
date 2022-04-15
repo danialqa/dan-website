@@ -1,0 +1,38 @@
+const colors = (theme) =>
+  ({
+    primary: theme === 'dark' ? '#FFFFFF' : '#000000',
+    white: '#FFFFFF',
+    yellow: '#FFAF28',
+    gray1: '#1F222E',
+    gray2: '#505976',
+
+    gray3: theme === 'dark' ? '#3E4776' : '#A0A0A0',
+    gray4: theme === 'dark' ? '#343C65' : '#B2B2B5',
+    gray5: theme === 'dark' ? '#2C3356' : '#C4C4C4',
+    gray6: theme === 'dark' ? '#272D4D' : '#D3D3D3',
+    gray7: theme === 'dark' ? '#212640' : '#E1E1E1',
+    gray8: theme === 'dark' ? '#1C2035' : '#EDEDED',
+    gray9: theme === 'dark' ? '#141727' : '#F9F9F9',
+    gray10: '#1c2135',
+    gray11: '#5A5D68',
+    gray12: '#2F3245',
+    black: theme === 'dark' ? '#0F121F' : '#F5F5F5',
+    accent: '#3950FD',
+    forceWhite: '#FFFFFF',
+    lightGreen: '#A3EDC8',
+    green: '#39D98A',
+    darkGreen: '#20A965',
+    freeSpeechGreen: '#1f323d',
+    lightRed: '#FFB3B3',
+    red: '#FF5C5C',
+    darkRed: '#E70000',
+    jagger: '#332639',
+    mardiGras: '#271523',
+    orange: '#FDAC42',
+    darkOrange: '#E78402',
+    blue: '#73DFE7',
+    darkBlue: '#25CCD9',
+    purple: '#3a2a5c',
+  } as const);
+
+export default colors;
