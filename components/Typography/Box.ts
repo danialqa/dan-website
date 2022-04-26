@@ -6,11 +6,10 @@ const Box: any = styled.div`
 
   /* FONT FAMILY */
   ${({ fontFamily }: any) =>
-    !!fontFamily && `font-family: ${fontFamily || 'SofiaPro'}`};
+    !!fontFamily && `font-family: ${fontFamily || 'HouschkaPro'}`};
 
   /* DIRECTION */
-  ${({ theme }: any) =>
-    `direction: ${theme.language === 'fa' ? 'rtl' : 'ltr'}`};
+  ${({ theme }: any) => `direction: ${theme.isRtl ? 'rtl' : 'ltr'}`};
 
   /* WIDTH */
   ${({ width }: any) => !!width && `width: ${width}`};
@@ -41,327 +40,398 @@ const Box: any = styled.div`
     !!marginBottom && `margin-bottom: ${marginBottom}`};
 
   /* PADDING */
-  padding: ${({ padding }: any) => padding};
-  padding-top: ${({ paddingTop }: any) => paddingTop};
-  padding-inline-start: ${({ paddingRight }: any) => paddingRight};
-  padding-bottom: ${({ paddingBottom }: any) => paddingBottom};
-  padding-inline-end: ${({ paddingLeft }: any) => paddingLeft};
+  ${({ padding }: any) => !!padding && `padding: ${padding}`};
+  ${({ paddingTop }: any) => !!paddingTop && `padding-top: ${paddingTop}`};
+  ${({ paddingRight }: any) =>
+    !!paddingRight && `padding-inline-start: ${paddingRight}`};
+  ${({ paddingLeft }: any) =>
+    !!paddingLeft && `padding-inline-end: ${paddingLeft}`};
+  ${({ paddingBottom }: any) =>
+    !!paddingBottom && `padding-bottom: ${paddingBottom}`};
 
   /* DISPLAY */
-  display: ${({ display }: any) => display};
+  ${({ display }: any) => !!display && `display: ${display}`};
 
   /* BACKGROUND */
-  background: ${({ theme, background }: any) =>
-    theme.colors[background] || background};
+  ${({ theme, background }: any) =>
+    !!background && `background: ${theme.colors[background] || background}`};
 
   /* BORDER */
-  border: ${({ border }: any) => border};
-  border-bottom: ${({ borderBottom }: any) => borderBottom};
-  border-top: ${({ borderTop }: any) => borderTop};
-  border-left: ${({ borderLeft }: any) => borderLeft};
-  border-right: ${({ borderRight }: any) => borderRight};
-  border-radius: ${({ borderRadius }: any) => borderRadius};
-  border-color: ${({ theme, borderColor }: any) =>
-    theme.colors[borderColor] || borderColor};
+  ${({ border }: any) => !!border && `border: ${border}`};
+  ${({ borderBottom }: any) =>
+    !!borderBottom && `border-bottom: ${borderBottom}`};
+  ${({ borderTop }: any) => !!borderTop && `border-top: ${borderTop}`};
+  ${({ borderLeft }: any) => !!borderLeft && `border-left: ${borderLeft}`};
+  ${({ borderRight }: any) => !!borderRight && `border-right: ${borderRight}`};
+  ${({ borderRadius }: any) =>
+    !!borderRadius && `border-radius: ${borderRadius}`};
+  ${({ theme, borderColor }: any) =>
+    !!borderColor &&
+    `border-color: ${theme.colors[borderColor] || borderColor}`};
 
   /* POSITION */
-  position: ${({ position }: any) => position};
-  right: ${({ right }: any) => right};
-  left: ${({ left }: any) => left};
-  bottom: ${({ bottom }: any) => bottom};
-  top: ${({ top }: any) => top};
+  ${({ position }: any) => !!position && `position: ${position}`};
+  ${({ right }: any) => !!right && `right: ${right}`};
+  ${({ left }: any) => !!left && `left: ${left}`};
+  ${({ top }: any) => !!top && `top: ${top}`};
+  ${({ bottom }: any) => !!bottom && `bottom: ${bottom}`};
 
   /* TEXT ALIGN */
-  text-align: ${({ align }: any) => align};
+  ${({ align }: any) => !!align && `text-align: ${align}`};
 
   /* VERTICAL ALIGN */
-  vertical-align: ${({ verticalAlign }: any) => verticalAlign};
+  ${({ verticalAlign }: any) =>
+    !!verticalAlign && `vertical-align: ${verticalAlign}`};
 
   /* Z-INDEX */
-  z-index: ${({ zIndex }: any) => zIndex};
+  ${({ zIndex }: any) => !!zIndex && `z-index: ${zIndex}`};
 
   /* DESKTOP  */
-  @media ${({ theme }) => theme.device.desktop} {
-    color: ${({ theme, colorD }: any) => theme.colors[colorD]};
-    font-family: ${({ fontFamilyD }: any) => fontFamilyD || 'SofiaPro'};
+  @media ${({ theme }: any) => theme.device.desktop} {
+    /* COLOR */
+    ${({ theme, colorD }: any) =>
+      !!colorD &&
+      `color: ${
+        !!theme.colors[colorD] ? theme.colors[colorD] : theme.colors.white
+      }`};
 
     /* WIDTH */
-    width: ${({ widthD }: any) => widthD && widthD};
-    min-width: ${({ minWidthD }: any) => minWidthD && minWidthD};
-    max-width: ${({ maxWidthD }: any) => maxWidthD && maxWidthD};
+    ${({ widthD }: any) => !!widthD && `width: ${widthD}`};
+    ${({ minWidthD }: any) => !!minWidthD && `min-width: ${minWidthD}`};
+    ${({ maxWidthD }: any) => !!maxWidthD && `max-width: ${maxWidthD}`};
 
     /* HEIGHT */
-    height: ${({ heightD }: any) => heightD && heightD};
-    min-height: ${({ minHeightD }: any) => minHeightD && minHeightD};
-    max-height: ${({ maxHeightD }: any) => maxHeightD && maxHeightD};
+    ${({ heightD }: any) => !!heightD && `height: ${heightD}`};
+    ${({ minHeightD }: any) => !!minHeightD && `min-height: ${minHeightD}`};
+    ${({ maxHeightD }: any) => !!maxHeightD && `max-height: ${maxHeightD}`};
 
     /* OVERFLOW */
-    overflow: ${({ overflowD }: any) => overflowD && overflowD};
-    overflow-x: ${({ overflowxD }: any) => overflowxD && overflowxD};
-    overflow-y: ${({ overflowyD }: any) => overflowyD && overflowyD};
+    ${({ overflowD }: any) => !!overflowD && `overflow: ${overflowD}`};
+    ${({ overflowxD }: any) => !!overflowxD && `overflow-x: ${overflowxD}`};
+    ${({ overflowyD }: any) => !!overflowyD && `overflow-y: ${overflowyD}`};
 
     /* WHITE SPACE */
-    white-space: ${({ whiteSpaceD }: any) => whiteSpaceD && whiteSpaceD};
+    ${({ whiteSpaceD }: any) => !!whiteSpaceD && `white-space: ${whiteSpaceD}`};
 
     /* MARGIN */
-    margin: ${({ marginD }: any) => marginD};
-    margin-top: ${({ marginTopD }: any) => marginTopD};
-    margin-inline-start: ${({ marginRightD }: any) => marginRightD};
-    margin-bottom: ${({ marginBottomD }: any) => marginBottomD};
-    margin-inline-end: ${({ marginLeftD }: any) => marginLeftD};
+    ${({ marginD }: any) => !!marginD && `margin: ${marginD}`};
+    ${({ marginTopD }: any) => !!marginTopD && `margin-top: ${marginTopD}`};
+    ${({ marginRightD }: any) =>
+      !!marginRightD && `margin-inline-start: ${marginRightD}`};
+    ${({ marginLeftD }: any) =>
+      !!marginLeftD && `margin-inline-end: ${marginLeftD}`};
+    ${({ marginBottomD }: any) =>
+      !!marginBottomD && `margin-bottom: ${marginBottomD}`};
 
     /* PADDING */
-    padding: ${({ paddingD }: any) => paddingD};
-    padding-top: ${({ paddingTopD }: any) => paddingTopD};
-    padding-inline-start: ${({ paddingRightD }: any) => paddingRightD};
-    padding-bottom: ${({ paddingBottomD }: any) => paddingBottomD};
-    padding-inline-end: ${({ paddingLeftD }: any) => paddingLeftD};
+    ${({ paddingD }: any) => !!paddingD && `padding: ${paddingD}`};
+    ${({ paddingTopD }: any) => !!paddingTopD && `padding-top: ${paddingTopD}`};
+    ${({ paddingRightD }: any) =>
+      !!paddingRightD && `padding-inline-start: ${paddingRightD}`};
+    ${({ paddingLeftD }: any) =>
+      !!paddingLeftD && `padding-inline-end: ${paddingLeftD}`};
+    ${({ paddingBottomD }: any) =>
+      !!paddingBottomD && `padding-bottom: ${paddingBottomD}`};
 
     /* DISPLAY */
-    display: ${({ displayD }: any) => displayD};
+    ${({ displayD }: any) => !!displayD && `display: ${displayD}`};
 
     /* BACKGROUND */
-    background: ${({ theme, backgroundD }: any) =>
-      theme.colors[backgroundD] || backgroundD};
+    ${({ theme, backgroundD }: any) =>
+      !!backgroundD &&
+      `background: ${theme.colors[backgroundD] || backgroundD}`};
 
     /* BORDER */
-    border: ${({ borderD }: any) => borderD};
-    border-bottom: ${({ borderBottomD }: any) => borderBottomD};
-    border-top: ${({ borderTopD }: any) => borderTopD};
-    border-left: ${({ borderLeftD }: any) => borderLeftD};
-    border-right: ${({ borderRightD }: any) => borderRightD};
-    border-radius: ${({ borderRadiusD }: any) => borderRadiusD};
-    border-color: ${({ theme, borderColorD }: any) =>
-      theme.colors[borderColorD] || borderColorD};
+    ${({ borderD }: any) => !!borderD && `border: ${borderD}`};
+    ${({ borderBottomD }: any) =>
+      !!borderBottomD && `border-bottom: ${borderBottomD}`};
+    ${({ borderTopD }: any) => !!borderTopD && `border-top: ${borderTopD}`};
+    ${({ borderLeftD }: any) => !!borderLeftD && `border-left: ${borderLeftD}`};
+    ${({ borderRightD }: any) =>
+      !!borderRightD && `border-right: ${borderRightD}`};
+    ${({ borderRadiusD }: any) =>
+      !!borderRadiusD && `border-radius: ${borderRadiusD}`};
+    ${({ theme, borderColorD }: any) =>
+      !!borderColorD &&
+      `border-color: ${theme.colors[borderColorD] || borderColorD}`};
 
     /* POSITION */
-    position: ${({ positionD }: any) => positionD};
-    right: ${({ rightD }: any) => rightD};
-    left: ${({ leftD }: any) => leftD};
-    bottom: ${({ bottomD }: any) => bottomD};
-    top: ${({ topD }: any) => topD};
+    ${({ positionD }: any) => !!positionD && `position: ${positionD}`};
+    ${({ rightD }: any) => !!rightD && `right: ${rightD}`};
+    ${({ leftD }: any) => !!leftD && `left: ${leftD}`};
+    ${({ topD }: any) => !!topD && `top: ${topD}`};
+    ${({ bottomD }: any) => !!bottomD && `bottom: ${bottomD}`};
 
     /* TEXT ALIGN */
-    text-align: ${({ alignD }: any) => alignD};
+    ${({ alignD }: any) => !!alignD && `text-align: ${alignD}`};
 
     /* VERTICAL ALIGN */
-    vertical-align: ${({ verticalAlignD }: any) => verticalAlignD};
+    ${({ verticalAlignD }: any) =>
+      !!verticalAlignD && `vertical-align: ${verticalAlignD}`};
 
     /* Z-INDEX */
-    z-index: ${({ zIndexD }: any) => zIndexD};
+    ${({ zIndexD }: any) => !!zIndexD && `z-index: ${zIndexD}`};
   }
 
   /* LAPTOP  */
-  @media ${({ theme }) => theme.device.laptop} {
-    color: ${({ theme, colorL }: any) => theme.colors[colorL]};
-    font-family: ${({ fontFamilyL }: any) => fontFamilyL || 'SofiaPro'};
+  @media ${({ theme }: any) => theme.device.laptop} {
+    /* COLOR */
+    ${({ theme, colorL }: any) =>
+      !!colorL &&
+      `color: ${
+        !!theme.colors[colorL] ? theme.colors[colorL] : theme.colors.white
+      }`};
 
     /* WIDTH */
-    width: ${({ widthL }: any) => widthL && widthL};
-    min-width: ${({ minWidthL }: any) => minWidthL && minWidthL};
-    max-width: ${({ maxWidthL }: any) => maxWidthL && maxWidthL};
+    ${({ widthL }: any) => !!widthL && `width: ${widthL}`};
+    ${({ minWidthL }: any) => !!minWidthL && `min-width: ${minWidthL}`};
+    ${({ maxWidthL }: any) => !!maxWidthL && `max-width: ${maxWidthL}`};
 
     /* HEIGHT */
-    height: ${({ heightL }: any) => heightL && heightL};
-    min-height: ${({ minHeightL }: any) => minHeightL && minHeightL};
-    max-height: ${({ maxHeightL }: any) => maxHeightL && maxHeightL};
+    ${({ heightL }: any) => !!heightL && `height: ${heightL}`};
+    ${({ minHeightL }: any) => !!minHeightL && `min-height: ${minHeightL}`};
+    ${({ maxHeightL }: any) => !!maxHeightL && `max-height: ${maxHeightL}`};
 
     /* OVERFLOW */
-    overflow: ${({ overflowL }: any) => overflowL && overflowL};
-    overflow-x: ${({ overflowxL }: any) => overflowxL && overflowxL};
-    overflow-y: ${({ overflowyL }: any) => overflowyL && overflowyL};
+    ${({ overflowL }: any) => !!overflowL && `overflow: ${overflowL}`};
+    ${({ overflowxL }: any) => !!overflowxL && `overflow-x: ${overflowxL}`};
+    ${({ overflowyL }: any) => !!overflowyL && `overflow-y: ${overflowyL}`};
 
     /* WHITE SPACE */
-    white-space: ${({ whiteSpaceL }: any) => whiteSpaceL && whiteSpaceL};
+    ${({ whiteSpaceL }: any) => !!whiteSpaceL && `white-space: ${whiteSpaceL}`};
 
     /* MARGIN */
-    margin: ${({ marginL }: any) => marginL};
-    margin-top: ${({ marginTopL }: any) => marginTopL};
-    margin-inline-start: ${({ marginRightL }: any) => marginRightL};
-    margin-bottom: ${({ marginBottomL }: any) => marginBottomL};
-    margin-inline-end: ${({ marginLeftL }: any) => marginLeftL};
+    ${({ marginL }: any) => !!marginL && `margin: ${marginL}`};
+    ${({ marginTopL }: any) => !!marginTopL && `margin-top: ${marginTopL}`};
+    ${({ marginRightL }: any) =>
+      !!marginRightL && `margin-inline-start: ${marginRightL}`};
+    ${({ marginLeftL }: any) =>
+      !!marginLeftL && `margin-inline-end: ${marginLeftL}`};
+    ${({ marginBottomL }: any) =>
+      !!marginBottomL && `margin-bottom: ${marginBottomL}`};
 
     /* PADDING */
-    padding: ${({ paddingL }: any) => paddingL};
-    padding-top: ${({ paddingTopL }: any) => paddingTopL};
-    padding-inline-start: ${({ paddingRightL }: any) => paddingRightL};
-    padding-bottom: ${({ paddingBottomL }: any) => paddingBottomL};
-    padding-inline-end: ${({ paddingLeftL }: any) => paddingLeftL};
+    ${({ paddingL }: any) => !!paddingL && `padding: ${paddingL}`};
+    ${({ paddingTopL }: any) => !!paddingTopL && `padding-top: ${paddingTopL}`};
+    ${({ paddingRightL }: any) =>
+      !!paddingRightL && `padding-inline-start: ${paddingRightL}`};
+    ${({ paddingLeftL }: any) =>
+      !!paddingLeftL && `padding-inline-end: ${paddingLeftL}`};
+    ${({ paddingBottomL }: any) =>
+      !!paddingBottomL && `padding-bottom: ${paddingBottomL}`};
 
     /* DISPLAY */
-    display: ${({ displayL }: any) => displayL};
+    ${({ displayL }: any) => !!displayL && `display: ${displayL}`};
 
     /* BACKGROUND */
-    background: ${({ theme, backgroundL }: any) =>
-      theme.colors[backgroundL] || backgroundL};
+    ${({ theme, backgroundL }: any) =>
+      !!backgroundL &&
+      `background: ${theme.colors[backgroundL] || backgroundL}`};
 
     /* BORDER */
-    border: ${({ borderL }: any) => borderL};
-    border-bottom: ${({ borderBottomL }: any) => borderBottomL};
-    border-top: ${({ borderTopL }: any) => borderTopL};
-    border-left: ${({ borderLeftL }: any) => borderLeftL};
-    border-right: ${({ borderRightL }: any) => borderRightL};
-    border-radius: ${({ borderRadiusL }: any) => borderRadiusL};
-    border-color: ${({ theme, borderColorL }: any) =>
-      theme.colors[borderColorL] || borderColorL};
+    ${({ borderL }: any) => !!borderL && `border: ${borderL}`};
+    ${({ borderBottomL }: any) =>
+      !!borderBottomL && `border-bottom: ${borderBottomL}`};
+    ${({ borderTopL }: any) => !!borderTopL && `border-top: ${borderTopL}`};
+    ${({ borderLeftL }: any) => !!borderLeftL && `border-left: ${borderLeftL}`};
+    ${({ borderRightL }: any) =>
+      !!borderRightL && `border-right: ${borderRightL}`};
+    ${({ borderRadiusL }: any) =>
+      !!borderRadiusL && `border-radius: ${borderRadiusL}`};
+    ${({ theme, borderColorL }: any) =>
+      !!borderColorL &&
+      `border-color: ${theme.colors[borderColorL] || borderColorL}`};
 
     /* POSITION */
-    position: ${({ positionL }: any) => positionL};
-    right: ${({ rightL }: any) => rightL};
-    left: ${({ leftL }: any) => leftL};
-    bottom: ${({ bottomL }: any) => bottomL};
-    top: ${({ paddingTopL }: any) => paddingTopL};
+    ${({ positionL }: any) => !!positionL && `position: ${positionL}`};
+    ${({ rightL }: any) => !!rightL && `right: ${rightL}`};
+    ${({ leftL }: any) => !!leftL && `left: ${leftL}`};
+    ${({ topL }: any) => !!topL && `top: ${topL}`};
+    ${({ bottomL }: any) => !!bottomL && `bottom: ${bottomL}`};
 
     /* TEXT ALIGN */
-    text-align: ${({ alignL }: any) => alignL};
+    ${({ alignL }: any) => !!alignL && `text-align: ${alignL}`};
 
     /* VERTICAL ALIGN */
-    vertical-align: ${({ verticalAlignL }: any) => verticalAlignL};
+    ${({ verticalAlignL }: any) =>
+      !!verticalAlignL && `vertical-align: ${verticalAlignL}`};
 
     /* Z-INDEX */
-    z-index: ${({ zIndexL }: any) => zIndexL};
+    ${({ zIndexL }: any) => !!zIndexL && `z-index: ${zIndexL}`};
   }
 
   /* TABLET  */
-  @media ${({ theme }) => theme.device.tablet} {
-    color: ${({ theme, colorT }: any) => theme.colors[colorT]};
-    font-family: ${({ fontFamilyT }: any) => fontFamilyT || 'SofiaPro'};
+  @media ${({ theme }: any) => theme.device.tablet} {
+    /* COLOR */
+    ${({ theme, colorT }: any) =>
+      !!colorT &&
+      `color: ${
+        !!theme.colors[colorT] ? theme.colors[colorT] : theme.colors.white
+      }`};
 
     /* WIDTH */
-    width: ${({ widthT }: any) => widthT && widthT};
-    min-width: ${({ minWidthT }: any) => minWidthT && minWidthT};
-    max-width: ${({ maxWidthT }: any) => maxWidthT && maxWidthT};
+    ${({ widthT }: any) => !!widthT && `width: ${widthT}`};
+    ${({ minWidthT }: any) => !!minWidthT && `min-width: ${minWidthT}`};
+    ${({ maxWidthT }: any) => !!maxWidthT && `max-width: ${maxWidthT}`};
 
     /* HEIGHT */
-    height: ${({ heightT }: any) => heightT && heightT};
-    min-height: ${({ minHeightT }: any) => minHeightT && minHeightT};
-    max-height: ${({ maxHeightT }: any) => maxHeightT && maxHeightT};
+    ${({ heightT }: any) => !!heightT && `height: ${heightT}`};
+    ${({ minHeightT }: any) => !!minHeightT && `min-height: ${minHeightT}`};
+    ${({ maxHeightT }: any) => !!maxHeightT && `max-height: ${maxHeightT}`};
 
     /* OVERFLOW */
-    overflow: ${({ overflowT }: any) => overflowT && overflowT};
-    overflow-x: ${({ overflowxT }: any) => overflowxT && overflowxT};
-    overflow-y: ${({ overflowyT }: any) => overflowyT && overflowyT};
+    ${({ overflowT }: any) => !!overflowT && `overflow: ${overflowT}`};
+    ${({ overflowxT }: any) => !!overflowxT && `overflow-x: ${overflowxT}`};
+    ${({ overflowyT }: any) => !!overflowyT && `overflow-y: ${overflowyT}`};
 
     /* WHITE SPACE */
-    white-space: ${({ whiteSpaceT }: any) => whiteSpaceT && whiteSpaceT};
+    ${({ whiteSpaceT }: any) => !!whiteSpaceT && `white-space: ${whiteSpaceT}`};
 
     /* MARGIN */
-    margin: ${({ marginT }: any) => marginT};
-    margin-top: ${({ marginTopT }: any) => marginTopT};
-    margin-inline-start: ${({ marginRightT }: any) => marginRightT};
-    margin-bottom: ${({ marginBottomT }: any) => marginBottomT};
-    margin-inline-end: ${({ marginLeftT }: any) => marginLeftT};
+    ${({ marginT }: any) => !!marginT && `margin: ${marginT}`};
+    ${({ marginTopT }: any) => !!marginTopT && `margin-top: ${marginTopT}`};
+    ${({ marginRightT }: any) =>
+      !!marginRightT && `margin-inline-start: ${marginRightT}`};
+    ${({ marginLeftT }: any) =>
+      !!marginLeftT && `margin-inline-end: ${marginLeftT}`};
+    ${({ marginBottomT }: any) =>
+      !!marginBottomT && `margin-bottom: ${marginBottomT}`};
 
     /* PADDING */
-    padding: ${({ paddingT }: any) => paddingT};
-    padding-top: ${({ paddingTopT }: any) => paddingTopT};
-    padding-inline-start: ${({ paddingRightT }: any) => paddingRightT};
-    padding-bottom: ${({ paddingBottomT }: any) => paddingBottomT};
-    padding-inline-end: ${({ paddingLeftT }: any) => paddingLeftT};
+    ${({ paddingT }: any) => !!paddingT && `padding: ${paddingT}`};
+    ${({ paddingTopT }: any) => !!paddingTopT && `padding-top: ${paddingTopT}`};
+    ${({ paddingRightT }: any) =>
+      !!paddingRightT && `padding-inline-start: ${paddingRightT}`};
+    ${({ paddingLeftT }: any) =>
+      !!paddingLeftT && `padding-inline-end: ${paddingLeftT}`};
+    ${({ paddingBottomT }: any) =>
+      !!paddingBottomT && `padding-bottom: ${paddingBottomT}`};
 
     /* DISPLAY */
-    display: ${({ displayT }: any) => displayT};
+    ${({ displayT }: any) => !!displayT && `display: ${displayT}`};
 
     /* BACKGROUND */
-    background: ${({ theme, backgroundT }: any) =>
-      theme.colors[backgroundT] || backgroundT};
+    ${({ theme, backgroundT }: any) =>
+      !!backgroundT &&
+      `background: ${theme.colors[backgroundT] || backgroundT}`};
 
     /* BORDER */
-    border: ${({ borderT }: any) => borderT};
-    border-bottom: ${({ borderBottomT }: any) => borderBottomT};
-    border-top: ${({ borderTopT }: any) => borderTopT};
-    border-left: ${({ borderLeftT }: any) => borderLeftT};
-    border-right: ${({ borderRightT }: any) => borderRightT};
-    border-radius: ${({ borderRadiusT }: any) => borderRadiusT};
-    border-color: ${({ theme, borderColorT }: any) =>
-      theme.colors[borderColorT] || borderColorT};
+    ${({ borderT }: any) => !!borderT && `border: ${borderT}`};
+    ${({ borderBottomT }: any) =>
+      !!borderBottomT && `border-bottom: ${borderBottomT}`};
+    ${({ borderTopT }: any) => !!borderTopT && `border-top: ${borderTopT}`};
+    ${({ borderLeftT }: any) => !!borderLeftT && `border-left: ${borderLeftT}`};
+    ${({ borderRightT }: any) =>
+      !!borderRightT && `border-right: ${borderRightT}`};
+    ${({ borderRadiusT }: any) =>
+      !!borderRadiusT && `border-radius: ${borderRadiusT}`};
+    ${({ theme, borderColorT }: any) =>
+      !!borderColorT &&
+      `border-color: ${theme.colors[borderColorT] || borderColorT}`};
 
     /* POSITION */
-    position: ${({ positionT }: any) => positionT};
-    right: ${({ rightT }: any) => rightT};
-    left: ${({ leftT }: any) => leftT};
-    bottom: ${({ bottomT }: any) => bottomT};
-    top: ${({ paddingTopT }: any) => paddingTopT};
+    ${({ positionT }: any) => !!positionT && `position: ${positionT}`};
+    ${({ rightT }: any) => !!rightT && `right: ${rightT}`};
+    ${({ leftT }: any) => !!leftT && `left: ${leftT}`};
+    ${({ topT }: any) => !!topT && `top: ${topT}`};
+    ${({ bottomT }: any) => !!bottomT && `bottom: ${bottomT}`};
 
     /* TEXT ALIGN */
-    text-align: ${({ alignT }: any) => alignT};
+    ${({ alignT }: any) => !!alignT && `text-align: ${alignT}`};
 
     /* VERTICAL ALIGN */
-    vertical-align: ${({ verticalAlignT }: any) => verticalAlignT};
+    ${({ verticalAlignT }: any) =>
+      !!verticalAlignT && `vertical-align: ${verticalAlignT}`};
 
     /* Z-INDEX */
-    z-index: ${({ zIndexT }: any) => zIndexT};
+    ${({ zIndexT }: any) => !!zIndexT && `z-index: ${zIndexT}`};
   }
 
   /* MOBILE  */
-  @media ${({ theme }) => theme.device.mobile} {
-    color: ${({ theme, colorM }: any) => theme.colors[colorM]};
-    font-family: ${({ fontFamilyM }: any) => fontFamilyM || 'SofiaPro'};
+  @media ${({ theme }: any) => theme.device.mobile} {
+    /* COLOR */
+    ${({ theme, colorM }: any) =>
+      !!colorM &&
+      `color: ${
+        !!theme.colors[colorM] ? theme.colors[colorM] : theme.colors.white
+      }`};
 
     /* WIDTH */
-    width: ${({ widthM }: any) => widthM && widthM};
-    min-width: ${({ minWidthM }: any) => minWidthM && minWidthM};
-    max-width: ${({ maxWidthM }: any) => maxWidthM && maxWidthM};
+    ${({ widthM }: any) => !!widthM && `width: ${widthM}`};
+    ${({ minWidthM }: any) => !!minWidthM && `min-width: ${minWidthM}`};
+    ${({ maxWidthM }: any) => !!maxWidthM && `max-width: ${maxWidthM}`};
 
     /* HEIGHT */
-    height: ${({ heightM }: any) => heightM && heightM};
-    min-height: ${({ minHeightM }: any) => minHeightM && minHeightM};
-    max-height: ${({ maxHeightM }: any) => maxHeightM && maxHeightM};
+    ${({ heightM }: any) => !!heightM && `height: ${heightM}`};
+    ${({ minHeightM }: any) => !!minHeightM && `min-height: ${minHeightM}`};
+    ${({ maxHeightM }: any) => !!maxHeightM && `max-height: ${maxHeightM}`};
 
     /* OVERFLOW */
-    overflow: ${({ overflowM }: any) => overflowM && overflowM};
-    overflow-x: ${({ overflowxM }: any) => overflowxM && overflowxM};
-    overflow-y: ${({ overflowyM }: any) => overflowyM && overflowyM};
+    ${({ overflowM }: any) => !!overflowM && `overflow: ${overflowM}`};
+    ${({ overflowxM }: any) => !!overflowxM && `overflow-x: ${overflowxM}`};
+    ${({ overflowyM }: any) => !!overflowyM && `overflow-y: ${overflowyM}`};
 
     /* WHITE SPACE */
-    white-space: ${({ whiteSpaceM }: any) => whiteSpaceM && whiteSpaceM};
+    ${({ whiteSpaceM }: any) => !!whiteSpaceM && `white-space: ${whiteSpaceM}`};
 
     /* MARGIN */
-    margin: ${({ marginM }: any) => marginM};
-    margin-top: ${({ marginTopM }: any) => marginTopM};
-    margin-inline-start: ${({ marginRightM }: any) => marginRightM};
-    margin-bottom: ${({ marginBottomM }: any) => marginBottomM};
-    margin-inline-end: ${({ marginLeftM }: any) => marginLeftM};
+    ${({ marginM }: any) => !!marginM && `margin: ${marginM}`};
+    ${({ marginTopM }: any) => !!marginTopM && `margin-top: ${marginTopM}`};
+    ${({ marginRightM }: any) =>
+      !!marginRightM && `margin-inline-start: ${marginRightM}`};
+    ${({ marginLeftM }: any) =>
+      !!marginLeftM && `margin-inline-end: ${marginLeftM}`};
+    ${({ marginBottomM }: any) =>
+      !!marginBottomM && `margin-bottom: ${marginBottomM}`};
 
     /* PADDING */
-    padding: ${({ paddingM }: any) => paddingM};
-    padding-top: ${({ paddingTopM }: any) => paddingTopM};
-    padding-inline-start: ${({ paddingRightM }: any) => paddingRightM};
-    padding-bottom: ${({ paddingBottomM }: any) => paddingBottomM};
-    padding-inline-end: ${({ paddingLeftM }: any) => paddingLeftM};
+    ${({ paddingM }: any) => !!paddingM && `padding: ${paddingM}`};
+    ${({ paddingTopM }: any) => !!paddingTopM && `padding-top: ${paddingTopM}`};
+    ${({ paddingRightM }: any) =>
+      !!paddingRightM && `padding-inline-start: ${paddingRightM}`};
+    ${({ paddingLeftM }: any) =>
+      !!paddingLeftM && `padding-inline-end: ${paddingLeftM}`};
+    ${({ paddingBottomM }: any) =>
+      !!paddingBottomM && `padding-bottom: ${paddingBottomM}`};
 
     /* DISPLAY */
-    display: ${({ displayM }: any) => displayM};
+    ${({ displayM }: any) => !!displayM && `display: ${displayM}`};
 
     /* BACKGROUND */
-    background: ${({ theme, backgroundM }: any) =>
-      theme.colors[backgroundM] || backgroundM};
+    ${({ theme, backgroundM }: any) =>
+      !!backgroundM &&
+      `background: ${theme.colors[backgroundM] || backgroundM}`};
 
     /* BORDER */
-    border: ${({ borderM }: any) => borderM};
-    border-bottom: ${({ borderBottomM }: any) => borderBottomM};
-    border-top: ${({ borderTopM }: any) => borderTopM};
-    border-left: ${({ borderLeftM }: any) => borderLeftM};
-    border-right: ${({ borderRightM }: any) => borderRightM};
-    border-radius: ${({ borderRadiusM }: any) => borderRadiusM};
-    border-color: ${({ theme, borderColorM }: any) =>
-      theme.colors[borderColorM] || borderColorM};
+    ${({ borderM }: any) => !!borderM && `border: ${borderM}`};
+    ${({ borderBottomM }: any) =>
+      !!borderBottomM && `border-bottom: ${borderBottomM}`};
+    ${({ borderTopM }: any) => !!borderTopM && `border-top: ${borderTopM}`};
+    ${({ borderLeftM }: any) => !!borderLeftM && `border-left: ${borderLeftM}`};
+    ${({ borderRightM }: any) =>
+      !!borderRightM && `border-right: ${borderRightM}`};
+    ${({ borderRadiusM }: any) =>
+      !!borderRadiusM && `border-radius: ${borderRadiusM}`};
+    ${({ theme, borderColorM }: any) =>
+      !!borderColorM &&
+      `border-color: ${theme.colors[borderColorM] || borderColorM}`};
 
     /* POSITION */
-    position: ${({ positionM }: any) => positionM};
-    right: ${({ rightM }: any) => rightM};
-    left: ${({ leftM }: any) => leftM};
-    bottom: ${({ bottomM }: any) => bottomM};
-    top: ${({ paddingTopM }: any) => paddingTopM};
+    ${({ positionM }: any) => !!positionM && `position: ${positionM}`};
+    ${({ rightM }: any) => !!rightM && `right: ${rightM}`};
+    ${({ leftM }: any) => !!leftM && `left: ${leftM}`};
+    ${({ topM }: any) => !!topM && `top: ${topM}`};
+    ${({ bottomM }: any) => !!bottomM && `bottom: ${bottomM}`};
 
     /* TEXT ALIGN */
-    text-align: ${({ alignM }: any) => alignM};
+    ${({ alignM }: any) => !!alignM && `text-align: ${alignM}`};
 
     /* VERTICAL ALIGN */
-    vertical-align: ${({ verticalAlignM }: any) => verticalAlignM};
+    ${({ verticalAlignM }: any) =>
+      !!verticalAlignM && `vertical-align: ${verticalAlignM}`};
 
     /* Z-INDEX */
-    z-index: ${({ zIndexM }: any) => zIndexM};
+    ${({ zIndexM }: any) => !!zIndexM && `z-index: ${zIndexM}`};
   }
 `;
 

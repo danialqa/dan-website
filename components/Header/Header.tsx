@@ -33,12 +33,12 @@ export default function Header() {
 
   return (
     <HeaderWrapper>
-      <Box position='absolute' top='30px' left='30px'>
+      <Flex position='absolute' top='30px' left='30px'>
         <Text fontSize='25px' fontFamily='SofiaPro-Bold' margin='0 6px 0 0'>
           Danial
         </Text>
         <Text fontSize='25px'>Ghahremani</Text>
-      </Box>
+      </Flex>
 
       <Flex
         flexGap='35px'
@@ -51,7 +51,7 @@ export default function Header() {
         {routesList?.map((item) => (
           <Link href={item.href} key={item.subTitle}>
             <a className={`nav-item ${pathname === item.href ? 'active' : ''}`}>
-              <Text lineHeight='20px' fontSize='17px'>
+              <Text lineHeight='20px' fontSize='17px' color='white'>
                 {item.title}
               </Text>
               <Box>

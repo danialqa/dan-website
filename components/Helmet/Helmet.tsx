@@ -1,10 +1,14 @@
 import Head from 'next/head';
 
-export default function Helmet({ title }) {
+type Props = {
+  title: string;
+};
+
+export default function Helmet({ title }: Props) {
   return (
     <>
       <Head>
-        <title>{title} - Danial Ghahremani</title>
+        <title>{`${title} | Danial Ghahremani`}</title>
         <link rel='icon' href='/favicon.ico' />
         <meta
           name='viewport'
@@ -14,6 +18,37 @@ export default function Helmet({ title }) {
         <meta
           name='keywords'
           content='Developer, Front-end, Reactjs, Javascript, CSS, HTML'
+        />
+
+        <link
+          rel='preload'
+          href='/fonts/SofiaProBold'
+          as='font'
+          crossOrigin=''
+        />
+        <link
+          rel='preload'
+          href='/fonts/SofiaProLight'
+          as='font'
+          crossOrigin=''
+        />
+        <link
+          rel='preload'
+          href='/fonts/SofiaProMedium'
+          as='font'
+          crossOrigin=''
+        />
+        <link
+          rel='preload'
+          href='/fonts/SofiaProRegular'
+          as='font'
+          crossOrigin=''
+        />
+        <link
+          rel='preload'
+          href='/fonts/SofiaProSemiBold'
+          as='font'
+          crossOrigin=''
         />
       </Head>
     </>

@@ -24,7 +24,11 @@ export default function Home() {
             padding='20px'
             borderRadius='23px'
           >
-            <Text fontSize='18px'>I’m a Front-End Developer</Text>
+            <Text fontSize='18px' lineHeight='24px'>
+              Experienced Frontend developer with 10+ years design and develop
+              large-scale JavaScript web applications with technologies such as
+              React JS. I interested in full-stack web development too
+            </Text>
           </Box>
         </Box>
       </Flex>

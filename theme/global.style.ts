@@ -33,32 +33,7 @@ export default createGlobalStyle`
   }
 
   a {
-    color: #fff;
     transition: all ease-in-out 0.2s;
-  }
-  
-  @font-face {
-    font-family: 'SofiaPro-Bold';
-    src: url("/fonts/SofiaProBold.ttf");
-  }
-
-  @font-face {
-    font-family: 'SofiaPro-Light';
-    src: url("/fonts/SofiaProLight.ttf");
-  }
-
-  @font-face {
-    font-family: 'SofiaPro-Medium';
-    src: url("/fonts/SofiaProMedium.ttf");
-  }
-
-  @font-face {
-    font-family: 'SofiaPro';
-    src: url("/fonts/SofiaProRegular.ttf");
-  }
-
-  @font-face {
-    font-family: 'SofiaPro-SemiBold';
-    src: url("/fonts/SofiaProSemiBold.ttf");
+    text-decoration: none;
   }
 `;

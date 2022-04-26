@@ -3,13 +3,14 @@ import { ThemeProvider } from 'styled-components';
 
 import { Header } from 'components';
 
-import GlobalStyle from './global.style';
+import GlobalStyle from '../theme/global.style';
+import '../theme/globals.scss';
 
-import variables from 'theme/variables';
+import themeVariables from 'theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={variables('dark', 'en')}>
+    <ThemeProvider theme={themeVariables('dark', 'en')}>
       <GlobalStyle />
 
       <Header />

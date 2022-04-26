@@ -4,7 +4,7 @@ export const HeaderWrapper = styled.div`
   .nav-item {
     &:hover,
     &.active {
-      span {
+      div {
         transition: all ease-in-out 0.2s;
 
         &:first-child {

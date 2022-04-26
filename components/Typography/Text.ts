@@ -3,36 +3,36 @@ import styled from 'styled-components';
 import Box from './Box';
 
 const Text = styled(Box)`
-  font-size: ${({ fontSize }: any) => fontSize || '14px'};
-  line-height: ${({ lineHeight }: any) => lineHeight || '24px'};
+  font-size: ${({ fontSize }: any) => fontSize};
+  line-height: ${({ lineHeight }: any) => lineHeight};
   font-weight: ${({ weight }: any) => weight};
 
   /* DESKTOP  */
   @media ${({ theme }) => theme.device.desktop} {
-    font-size: ${({ fontSizeD }: any) => fontSizeD || '14px'};
-    line-height: ${({ lineHeightD }: any) => lineHeightD || '24px'};
-    font-weight: ${({ weightD }: any) => weightD};
+    ${({ fontSizeD }) => !!fontSizeD && `font-size: ${fontSizeD}`};
+    ${({ lineHeightD }) => !!lineHeightD && `line-height: ${lineHeightD}`};
+    ${({ weightD }) => !!weightD && `font-weight: ${weightD}`};
   }
 
   /* LAPTOP  */
-  @media ${({ theme }) => theme.device.desktop} {
-    font-size: ${({ fontSizeL }: any) => fontSizeL || '14px'};
-    line-height: ${({ lineHeightL }: any) => lineHeightL || '24px'};
-    font-weight: ${({ weightL }: any) => weightL};
+  @media ${({ theme }) => theme.device.laptop} {
+    ${({ fontSizeL }) => !!fontSizeL && `font-size: ${fontSizeL}`};
+    ${({ lineHeightL }) => !!lineHeightL && `line-height: ${lineHeightL}`};
+    ${({ weightL }) => !!weightL && `font-weight: ${weightL}`};
   }
 
   /* TABLET  */
   @media ${({ theme }) => theme.device.tablet} {
-    font-size: ${({ fontSizeT }: any) => fontSizeT || '14px'};
-    line-height: ${({ lineHeightT }: any) => lineHeightT || '24px'};
-    font-weight: ${({ weightT }: any) => weightT};
+    ${({ fontSizeT }) => !!fontSizeT && `font-size: ${fontSizeT}`};
+    ${({ lineHeightT }) => !!lineHeightT && `line-height: ${lineHeightT}`};
+    ${({ weightT }) => !!weightT && `font-weight: ${weightT}`};
   }
 
   /* MOBILE  */
   @media ${({ theme }) => theme.device.mobile} {
-    font-size: ${({ fontSizeM }: any) => fontSizeM || '14px'};
-    line-height: ${({ lineHeightM }: any) => lineHeightM || '24px'};
-    font-weight: ${({ weightM }: any) => weightM};
+    ${({ fontSizeM }) => !!fontSizeM && `font-size: ${fontSizeM}`};
+    ${({ lineHeightM }) => !!lineHeightM && `line-height: ${lineHeightM}`};
+    ${({ weightM }) => !!weightM && `font-weight: ${weightM}`};
   }
 `;
 
